@@ -1,14 +1,24 @@
 <h1>Welcome</h1>
 
-
-<div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="..." alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.  
-</div>
+<div class="containers">
+	<% @questions.each do |q| %>
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+				<!-- <img class="media-object" src="http://www.virtualdj.com/images/v8/icons/features/download_icon.png" alt="..."> -->
+				<img class="media-object" src="<%= q.gravatar %>" alt="...">
+			</a>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading"><%= q.email %> asked</h4>
+			<div>
+				<%= time_ago_in_words q.created_at %> ago
+			</div>
+			<%= q.body %>
+			<div>
+				<a href="<%= question_path(q) %>" class="btn btn-success btn-xs">View Answers</a>
+			</div> 
+		</div>
+	</div>
+	<% end %>
 </div>
