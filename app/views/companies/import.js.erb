@@ -1,0 +1,36 @@
+console.log("I am here")
+var data = <%= @data.html_safe %>
+dataUpload(data);
+
+function dataUpload(data){
+    var template = $("#template-field-item").html();
+    $.each(data, function(i, item) {
+        var index, code, name, unit, unit_price, unit_price_formatted;
+        index = $('#field_item_element ul li').size();
+        code = item.Code;
+        name = item.Item_Name;
+        unit = item.Unit;
+        unit_price = item.Unit_Price;
+        unit_price_formatted = $.number(item.Unit_Price, 2);
+        renderedHtml = Mustache.to_html(template, {
+            index: index,
+            code: code,
+            name: name,
+            unit: unit,
+            unit_price: unit_price,
+            unit_price_formatted: unit_price_formatted
+        });
+        $("#field_item_element ul").append(renderedHtml);
+    })
+}
+
+//bindDeleteFieldItem: function() {
+//    var that;
+//    that = this;
+//    return $('.delete_field_item').bind('click', function() {
+//        return $(this).parents('ul').find('li.field_group_item_' + $(this).data('index')).remove();
+//    });
+//}
+
+
+

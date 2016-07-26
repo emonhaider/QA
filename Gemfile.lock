@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -53,12 +54,40 @@ GEM
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    dragonfly (1.0.12)
+      addressable (~> 2.3)
+      multi_json (~> 1.0)
+      rack (>= 1.3.0)
+    dragonfly-s3_data_store (1.2)
+      dragonfly (~> 1.0)
+      fog-aws
     erubis (2.7.0)
+    excon (0.45.4)
     execjs (2.5.2)
+    fog-aws (0.7.6)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (1.32.1)
+      builder
+      excon (~> 0.45)
+      formatador (~> 0.2)
+      mime-types
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+    fog-json (1.0.2)
+      fog-core (~> 1.0)
+      multi_json (~> 1.10)
+    fog-xml (0.1.2)
+      fog-core
+      nokogiri (~> 1.5, >= 1.5.11)
+    formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     hitimes (1.2.2-x86-mingw32)
     i18n (0.7.0)
+    ipaddress (0.8.0)
     jbuilder (2.3.0)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -75,6 +104,9 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
     nokogiri (1.6.6.2-x86-mingw32)
       mini_portile (~> 0.6.0)
     pg (0.18.2-x86-mingw32)
@@ -113,6 +145,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    remotipart (1.2.1)
     sass (3.4.15)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -158,11 +191,14 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  dragonfly (~> 1.0.12)
+  dragonfly-s3_data_store
   jbuilder (~> 2.0)
   jquery-rails
   pg
   rails (= 4.2.3)
   rails_12factor
+  remotipart (~> 1.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sqlite3

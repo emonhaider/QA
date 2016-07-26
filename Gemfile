@@ -50,3 +50,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'sucker_punch'
+gem 'remotipart', '~> 1.2'
+gem 'dragonfly', '~> 1.0.12'
+gem 'dragonfly-s3_data_store'
+

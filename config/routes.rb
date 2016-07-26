@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :companies do
+      collection { post :import }
+  end
   resources :answers
   resources :questions
   root 'home#index'

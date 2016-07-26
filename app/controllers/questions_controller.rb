@@ -10,6 +10,14 @@ class QuestionsController < ApplicationController
 		@answers = @question.answers.order(created_at: :desc)
 	end
 
+	def process
+		respond_to do |format|
+			if @sample.save
+				format.js
+			end
+		end
+	end
+
 	private
 
 	def question_params
